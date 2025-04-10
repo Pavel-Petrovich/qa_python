@@ -32,3 +32,7 @@ test_delete_book_from_favorites_removes_book
 
 test_get_list_of_favorites_books_returns_correct_list
 Тест: получаем правильный список избранных книг
+
+
+test_get_book_genre_returns_correct_genre
+Тест: метод возвращает корректный жанр, если он установлен

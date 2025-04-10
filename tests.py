@@ -35,7 +35,7 @@ class TestBooksCollector:
         assert book_name not in collector.get_books_genre()
 
     # Тест: у новой книги жанр по умолчанию отсутствует (пустая строка)
-    def test_new_book_has_no_genre_by_default(self):
+    def test_add_new_book_has_no_genre_by_default(self):
         collector = BooksCollector()
 
         collector.add_new_book("Новая книга")
@@ -59,6 +59,15 @@ class TestBooksCollector:
         collector.set_book_genre("1984", "Роман")  # жанра "Роман" нет в списке
 
         assert collector.get_book_genre("1984") == ""
+
+    # Тест: метод возвращает корректный жанр, если он установлен
+    def test_get_book_genre_returns_correct_genre(self):
+        collector = BooksCollector()
+
+        collector.add_new_book("Властелин колец")
+        collector.set_book_genre("Властелин колец", "Фантастика")
+
+        assert collector.get_book_genre("Властелин колец") == "Фантастика"
 
     # Тест: получаем список книг определённого жанра
     def test_get_books_with_specific_genre(self):
