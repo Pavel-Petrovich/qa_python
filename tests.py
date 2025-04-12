@@ -60,12 +60,12 @@ class TestBooksCollector:
 
         assert collector.get_book_genre("1984") == ""
 
-    # Тест: метод возвращает корректный жанр, если он установлен
-    def test_get_book_genre_returns_correct_genre(self):
+    # Тест: метод возвращает жанр, установленный напрямую в books_genre
+    def test_get_book_genre_after_direct_genre_assignment(self):
         collector = BooksCollector()
 
         collector.add_new_book("Властелин колец")
-        collector.set_book_genre("Властелин колец", "Фантастика")
+        collector.books_genre["Властелин колец"] = "Фантастика"
 
         assert collector.get_book_genre("Властелин колец") == "Фантастика"
 
